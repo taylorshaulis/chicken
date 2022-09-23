@@ -14,6 +14,10 @@ apps:
     repoUrl: https://aws.github.io/eks-charts
     chart: aws-load-balancer-controller
     targetRevision: "1.4.4"
+    helm: |
+      parameters:
+        - name: clusterName
+          value: my-cluster
 
   - name: ingress-nginx
     namespace: kube-system
