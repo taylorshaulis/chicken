@@ -2,7 +2,7 @@
 
 apps:
   - name: echoserver
-    namespace: argocd
+    namespace: default
     project: default
     repoUrl: https://github.com/taylorshaulis/chicken.git
     path: charts/echoserver
