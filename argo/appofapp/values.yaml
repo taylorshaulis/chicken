@@ -20,7 +20,7 @@ apps:
     project: default
     repoUrl: https://kubernetes.github.io/ingress-nginx
     chart: ingress-nginx
-    targetRevision: "1.4.4"
+    targetRevision: "4.1.2"
     helm: |
       values: |
         {{ .Files.Get "ingress_nginx.values.yaml" | nindent 2}}
