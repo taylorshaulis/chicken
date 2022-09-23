@@ -1,0 +1,14 @@
+
+
+apps:
+  - name: echoserver
+    namespace: default
+    project: default
+    repoUrl: https://github.com/taylorshaulis/chicken.git
+    path: charts/echoserver
+    targetRevision: HEAD
+
+
+spec:
+  destination:
+    server: https://kubernetes.default.svc

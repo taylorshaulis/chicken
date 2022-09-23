@@ -1,0 +1,41 @@
+{{ range .Values.apps }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}
+  namespace: ground-services
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ .project }}
+  source:
+    repoURL: {{ .repoUrl }}
+    {{- if .path }}
+    path: {{ .path }}
+    {{- end }}
+    {{- if .chart }}
+    chart: {{ .chart }}
+    {{- end }}
+    targetRevision: {{ .targetRevision }}
+    {{- if .helm }}
+    helm: {{- tpl .helm $ | nindent 6 }}
+    {{- end }}
+  destination:
+    namespace: {{ .namespace }}
+    server: {{ $.Values.spec.destination.server }}
+  {{- if .disableAutosync }}
+  syncPolicy: {}
+  {{- else }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      {{- if .syncPolicyAllowEmpty }}
+      allowEmpty: true
+      {{- end }}
+    {{- if .syncOptions }}
+    syncOptions: {{ .syncOptions | toYaml | nindent 6 }}
+    {{- end }}
+  {{- end }}
+{{ end }}
