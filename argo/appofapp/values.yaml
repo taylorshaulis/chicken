@@ -8,6 +8,22 @@ apps:
     path: charts/echoserver
     targetRevision: HEAD
 
+  - name: aws-load-balancer
+    namespace: kube-system
+    project: default
+    repoUrl: https://aws.github.io/eks-charts
+    chart: aws-load-balancer-controller
+    targetRevision: "1.4.4"
+
+  - name: ingress-nginx
+    namespace: kube-system
+    project: default
+    repoUrl: https://kubernetes.github.io/ingress-nginx
+    chart: ingress-nginx
+    targetRevision: "1.4.4"
+    helm: |
+      values: {{ .Files.Get "ingress_nginx.values.yaml" | nindent 2}}
+
 
 spec:
   destination:
