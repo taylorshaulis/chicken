@@ -22,7 +22,8 @@ apps:
     chart: ingress-nginx
     targetRevision: "1.4.4"
     helm: |
-      values: {{ .Files.Get "ingress_nginx.values.yaml" | nindent 2}}
+      values: |
+        {{ .Files.Get "ingress_nginx.values.yaml" | nindent 2}}
 
 
 spec:
