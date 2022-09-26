@@ -35,9 +35,7 @@ apps:
     repoUrl: https://github.com/argoproj/argo-helm
     path: charts/argo-workflows
     targetRevision: "argo-workflows-0.19.4"
-    helm: |
-      values: |
-        {{ .Files.Get "argo_workflows.values.yaml" | nindent 2}}
+
 
 
 spec:
