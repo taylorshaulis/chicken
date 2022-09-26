@@ -37,7 +37,7 @@ apps:
     targetRevision: "argo-workflows-0.19.4"
     helm: |
       values: |
-        {{ .Files.Get "ingress_nginx.values.yaml" | nindent 2}}
+        {{ .Files.Get "argo_workflows.values.yaml" | nindent 2}}
 
 
 
