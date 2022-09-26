@@ -2,4 +2,4 @@ server:
   ingress:
     enabled: true
     ingressClassName: nginx
-    hosts: ["argocd.chickentest.ect.spire.com"]
+    hosts: ["argo-workflows.chickentest.ect.spire.com"]
