@@ -3,3 +3,5 @@ server:
     enabled: true
     ingressClassName: nginx
     hosts: ["argo-workflows.chickentest.ect.spire.com"]
+  extraArgs:
+  - --auth-mode=server
