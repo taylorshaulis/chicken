@@ -7,7 +7,7 @@ spec:
   interval: 1m
   url: https://github.com/taylorshaulis/chicken
   ref:
-    branch: master
+    branch: main
   ignore: |
     # exclude all
     /*
