@@ -8,6 +8,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux2
+    namespace: flux-system
   path: ./manifests/monitoring/kube-prometheus-stack
   prune: true
   wait: true
