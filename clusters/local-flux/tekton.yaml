@@ -4,7 +4,7 @@ metadata:
   name: tekton
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m
   url: https://github.com/taylorshaulis/tekton-helm-chart
   ref:
     branch: main
@@ -20,7 +20,7 @@ metadata:
   name: tekton
   namespace: default
 spec:
-  interval: 5m
+  interval: 1m
   chart:
     spec:
       chart: ./charts/tekton-pipeline
@@ -28,4 +28,4 @@ spec:
         kind: GitRepository
         name: tekton
         namespace: flux-system
-      interval: 5m
+      interval: 1m
