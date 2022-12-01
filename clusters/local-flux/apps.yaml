@@ -4,7 +4,7 @@ metadata:
   name: chicken
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 5m
   url: https://github.com/taylorshaulis/chicken
   ref:
     branch: main
