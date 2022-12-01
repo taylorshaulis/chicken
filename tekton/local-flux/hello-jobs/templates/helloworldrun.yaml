@@ -1,3 +1,4 @@
+{{- if .Values.helloworld.taskrun.enabled }}
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
@@ -5,3 +6,4 @@ metadata:
 spec:
   taskRef:
     name: hello
+{{ end }}

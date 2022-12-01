@@ -1,3 +1,4 @@
+{{- if .Values.helloworld.task.enabled }}
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -9,3 +10,4 @@ spec:
       script: |
         #!/bin/sh
         echo "Hello World"
+{{ end }}

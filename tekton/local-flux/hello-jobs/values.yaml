@@ -1,0 +1,5 @@
+helloworld:
+  task:
+    enabled: true
+  taskrun:
+    enabled: true
