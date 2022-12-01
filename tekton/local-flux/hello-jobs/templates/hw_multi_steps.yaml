@@ -1,0 +1,31 @@
+{{- if .Values.hw_multi_steps.task.enabled }}
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hw-multi-steps
+spec:
+  steps:
+    - name: hw-multi-steps
+      image: ubuntu
+      script: |
+        #!/usr/bin/env bash
+        echo "Hello from Bash!"
+    - image: python
+      script: |
+        #!/usr/bin/env python3
+        print("Hello from Python!")
+    - image: node
+      script: |
+        #!/usr/bin/env node
+        console.log("Hello from Node!")
+{{- if .Values.helloworld.taskrun.enabled }}
+---
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: hw-multi-steps
+spec:
+  taskRef:
+    name: hw-multi-steps
+{{ end }}
+{{ end }}
