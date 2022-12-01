@@ -33,11 +33,11 @@ spec:
   values:
     helloworld:
       task:
-        enabled: false
+        enabled: true
       taskrun:
         enabled: true
     hw_multi_steps:
       task:
-        enabled: false
+        enabled: true
       taskrun:
         enabled: true
