@@ -36,8 +36,3 @@ spec:
         enabled: true
       taskrun:
         enabled: true
-    hw_multi_steps:
-      task:
-        enabled: true
-      taskrun:
-        enabled: true
