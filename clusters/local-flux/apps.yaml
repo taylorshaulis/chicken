@@ -35,4 +35,4 @@ spec:
       task:
         enabled: true
       taskrun:
-        enabled: false
+        enabled: true
