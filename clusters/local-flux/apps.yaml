@@ -22,6 +22,8 @@ metadata:
   namespace: default
 spec:
   interval: 1m
+  dependsOn:
+    - name: tekton
   chart:
     spec:
       chart: ./tekton/local-flux/hello-jobs
