@@ -59,4 +59,4 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    token: "hvs.shHt4OJRmI9PkUp1HwJNnlU4"
+    token: "aHZzLnNoSHQ0T0pSbUk5UGtVcDFId0pObmxVNAo="
