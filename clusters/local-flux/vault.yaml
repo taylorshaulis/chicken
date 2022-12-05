@@ -1,13 +1,11 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
+kind: HelmRepository
 metadata:
   name: vault
   namespace: default
 spec:
-  interval: 5m
-  url: https://github.com/hashicorp/vault-helm
-  ref:
-    branch: main 
+  interval: 1h
+  url: https://helm.releases.hashicorp.com
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -15,12 +13,15 @@ metadata:
   name: vault
   namespace: default
 spec:
+  targetNamespace: vault
   interval: 5m
+  install:
+    createNamespace: true
   chart:
     spec:
-      chart: ./
+      chart: vault
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: vault
         namespace: default
       interval: 5m
