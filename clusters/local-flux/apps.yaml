@@ -50,6 +50,8 @@ metadata:
 spec:
   targetNamespace: external-secrets
   interval: 1m
+  dependsOn:
+    - name: external-secrets
   chart:
     spec:
       chart: ./charts/external-secrets-store-vault

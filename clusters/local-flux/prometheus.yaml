@@ -19,6 +19,8 @@ metadata:
   name: monitoring-config
   namespace: default
 spec:
+  dependsOn:
+    - name: prometheus
   interval: 1h
   sourceRef:
     kind: GitRepository
