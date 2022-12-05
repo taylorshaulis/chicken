@@ -9,6 +9,7 @@ VAULTNAMESPACE="vault"
 VAULTNAME="vault-vault-0"
 EXTERNALSECRETSNAMESPACE="external-secrets"
 EXTERNALSECRETSVAULTSECRET="vault-admin-token"
+VAULTCLUSTERKEYS="../../cluster-keys.json"
 
 tee $POLICYFILENAME <<EOF
 # Read system health check
@@ -76,7 +77,7 @@ EOF
 #first cp admin policy up to vault pod
 
 kubectl cp $POLICYFILENAME $VAULTNAMESPACE/$VAULTNAME:/tmp/$POLICYFILENAME
-# ROOT_TOKEN=$(jq -r ".root_token" cluster-keys.json)
+ROOT_TOKEN=$(jq -r ".root_token" $VAULTCLUSTERKEYS)
 
 cat << EOF > $REMOTESCRIPTFILENAME
 #!/bin/sh
