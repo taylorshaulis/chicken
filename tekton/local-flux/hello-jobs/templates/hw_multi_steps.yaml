@@ -20,7 +20,7 @@ spec:
       script: |
         #!/usr/bin/env node
         console.log("Hello from Node!")
-{{- if .Values.helloworld.taskrun.enabled }}
+{{- if .Values.hw_multi_steps.taskrun.enabled }}
 ---
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
