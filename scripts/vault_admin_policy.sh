@@ -7,6 +7,8 @@ REMOTESCRIPTFILENAME="runme.sh"
 ADMINTOKENFILENAME="admin-token.json"
 VAULTNAMESPACE="vault"
 VAULTNAME="vault-vault-0"
+EXTERNALSECRETSNAMESPACE="external-secrets"
+EXTERNALSECRETSVAULTSECRET="vault-admin-token"
 
 tee $POLICYFILENAME <<EOF
 # Read system health check
@@ -74,7 +76,7 @@ EOF
 #first cp admin policy up to vault pod
 
 kubectl cp $POLICYFILENAME $VAULTNAMESPACE/$VAULTNAME:/tmp/$POLICYFILENAME
-ROOT_TOKEN=$(jq -r ".root_token" cluster-keys.json)
+# ROOT_TOKEN=$(jq -r ".root_token" cluster-keys.json)
 
 cat << EOF > $REMOTESCRIPTFILENAME
 #!/bin/sh
@@ -97,5 +99,13 @@ kubectl -n $VAULTNAMESPACE exec $VAULTNAME -- rm /tmp/$REMOTESCRIPTFILENAME /tmp
 rm $REMOTESCRIPTFILENAME
 rm $POLICYFILENAME
 
-echo "Admin Token = "
-jq -r ".auth.client_token" admin-token.json
+ADMIN_TOKEN=$(jq -r ".auth.client_token" $ADMINTOKENFILENAME)
+
+
+echo "Admin Token = $ADMIN_TOKEN"
+
+kubectl -n $EXTERNALSECRETSNAMESPACE delete secret/$EXTERNALSECRETSVAULTSECRET
+
+kubectl -n $EXTERNALSECRETSNAMESPACE create secret generic $EXTERNALSECRETSVAULTSECRET --from-literal=token=$ADMIN_TOKEN
+
+rm $ADMINTOKENFILENAME

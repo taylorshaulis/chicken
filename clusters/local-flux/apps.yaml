@@ -58,5 +58,3 @@ spec:
         name: chicken
         namespace: flux-system
       interval: 1m
-  values:
-    token: "aHZzLnNoSHQ0T0pSbUk5UGtVcDFId0pObmxVNAo="
