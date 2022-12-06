@@ -13,4 +13,8 @@ spec:
     /*
     # include charts directory
     !/pipeline/  
-    !/task/  
+    !/task/
+    # exclude test directories
+    /task/*/*/tests
+    # exclude samples directories
+    /task/*/*/samples
