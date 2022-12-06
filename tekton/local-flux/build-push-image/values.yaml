@@ -1,0 +1,5 @@
+clonebuildpush:
+  pipeline:
+    enabled: true
+  pipelinerun:
+    enabled: true

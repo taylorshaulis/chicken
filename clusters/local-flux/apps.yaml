@@ -62,3 +62,21 @@ spec:
         name: chicken
         namespace: flux-system
       interval: 1m
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: build-push-image
+  namespace: default
+spec:
+  interval: 1m
+  dependsOn:
+    - name: tekton
+  chart:
+    spec:
+      chart: ./tekton/local-flux/build-push-image
+      sourceRef:
+        kind: GitRepository
+        name: chicken
+        namespace: flux-system
+      interval: 1m
