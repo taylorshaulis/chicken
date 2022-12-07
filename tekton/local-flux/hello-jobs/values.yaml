@@ -15,3 +15,9 @@ hw_build_push:
     enabled: false
   taskrun:
     enabled: false
+
+hellocmd:
+  task:
+    enabled: true
+  taskrun:
+    enabled: true

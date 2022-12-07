@@ -1,0 +1,26 @@
+{{- if .Values.hellocmd.task.enabled }}
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hellocmd
+spec:
+  steps:
+    - name: cmd
+      image: alpine
+      script: $(params.cmd)
+{{- if .Values.hellocmd.taskrun.enabled }}
+---
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: hellocmd-taskrun
+spec:
+  taskRef:
+    name: hellocmd
+  params:
+    - name: cmd
+      value: |
+        #!/bin/sh
+        echo "Hello World"
+{{ end }}
+{{ end }}
