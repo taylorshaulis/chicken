@@ -45,6 +45,6 @@ spec:
             storage: 1Gi
   params:
   - name: repo-url
-    value: https://github.com/google/docsy-example.git
+    value: {{ .Values.clonebuildpush.pipelinerun.repo-url }}
 {{ end }}
 {{ end }}

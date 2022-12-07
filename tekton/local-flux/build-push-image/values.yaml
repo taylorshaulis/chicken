@@ -3,3 +3,4 @@ clonebuildpush:
     enabled: true
   pipelinerun:
     enabled: true
+    repo-url: https://github.com/google/docsy-example.git
