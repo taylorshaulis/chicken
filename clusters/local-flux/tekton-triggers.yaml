@@ -15,6 +15,7 @@ metadata:
   name: tekton-triggers
   namespace: default
 spec:
+  targetNamespace: default
   interval: 5m
   dependsOn:
     - name: tekton
