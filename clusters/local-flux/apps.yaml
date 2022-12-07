@@ -104,4 +104,4 @@ spec:
         enabled: true
       pipelinerun:
         enabled: true
-        repo-url: https://github.com/taylorshaulis/hello-world-daisy-chain.git
+        repourl: https://github.com/taylorshaulis/hello-world-daisy-chain.git
