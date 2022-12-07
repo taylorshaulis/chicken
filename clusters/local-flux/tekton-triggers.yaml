@@ -18,12 +18,9 @@ spec:
   interval: 5m
   dependsOn:
     - name: tekton
-  chart:
-    spec:
-      path: ./
-      prune: true
-      sourceRef:
-        kind: GitRepository
-        name: tekton-triggers
-        namespace: flux-system
-      interval: 5m
+  path: ./
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: tekton-triggers
+    namespace: flux-system
