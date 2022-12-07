@@ -22,6 +22,17 @@ spec:
     params:
     - name: url
       value: $(params.repo-url)
+  - name: listdata
+    taskRef:
+      hellocmd
+    workspaces:
+    - name: data
+      workspace: shared-data
+    params:
+    - name: cmd
+      value: |
+        #!/bin/sh
+        ls -alh /data
 {{- if .Values.clonebuildpush.pipelinerun.enabled }}
 ---
 apiVersion: tekton.dev/v1beta1
