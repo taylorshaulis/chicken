@@ -25,5 +25,18 @@ spec:
       value: |
         #!/bin/sh
         echo "Hello World"
+---
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: hellocmd-taskrun2
+spec:
+  taskRef:
+    name: hellocmd
+  params:
+    - name: cmd
+      value: |
+        #!/bin/sh
+        echo "World Hello"
 {{ end }}
 {{ end }}
