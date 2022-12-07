@@ -45,6 +45,6 @@ spec:
             storage: 1Gi
   params:
   - name: repo-url
-    value: {{ .Values.clonebuildpush.pipelinerun.repo-url }}
+    value: {{ .Values.clonebuildpush.pipelinerun.repourl }}
 {{ end }}
 {{ end }}
