@@ -5,6 +5,7 @@ metadata:
   name: tektoncd-catalog-git-clone
   namespace: default
 spec:
+  targetNamespace: default
   interval: 1h
   sourceRef:
     kind: GitRepository
