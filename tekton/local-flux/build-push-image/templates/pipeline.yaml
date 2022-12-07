@@ -10,6 +10,8 @@ spec:
   params:
   - name: repo-url
     type: string
+  - name: cmd
+    type: string
   workspaces:
   - name: shared-data
   tasks:
