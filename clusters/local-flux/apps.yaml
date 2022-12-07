@@ -71,7 +71,7 @@ metadata:
 spec:
   interval: 1m
   dependsOn:
-    - name: tekton
+    - name: tektoncd-catalog
   chart:
     spec:
       chart: ./tekton/local-flux/build-push-image
