@@ -12,7 +12,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: tektoncd-triggers
+  name: tekton-triggers
   namespace: default
 spec:
   interval: 5m
@@ -20,9 +20,9 @@ spec:
     - name: tekton
   chart:
     spec:
-      chart: ./charts/tektoncd-triggers
+      chart: ./charts/tekton-triggers
       sourceRef:
         kind: GitRepository
-        name: tektoncd-triggers
+        name: tekton-triggers
         namespace: flux-system
       interval: 5m
