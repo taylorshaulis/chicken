@@ -101,5 +101,6 @@ spec:
   values:
     clonebuildpush:
       pipelinerun:
+        enabled: false
         repo-url: https://github.com/taylorshaulis/hello-world-daisy-chain.git
 ---
