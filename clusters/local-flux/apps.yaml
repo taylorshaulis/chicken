@@ -103,5 +103,5 @@ spec:
       pipeline:
         enabled: true
       pipelinerun:
-        enabled: false
+        enabled: true
         repo-url: https://github.com/taylorshaulis/hello-world-daisy-chain.git
