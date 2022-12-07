@@ -1,0 +1,29 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: tekton-triggers
+  namespace: flux-system
+spec:
+  interval: 5m
+  url: https://github.com/taylorshaulis/tekton-triggers
+  ref:
+    branch: main 
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: tekton-triggers
+  namespace: default
+spec:
+  interval: 5m
+  dependsOn:
+    - name: tekton
+  chart:
+    spec:
+      path: ./
+      prune: true
+      sourceRef:
+        kind: GitRepository
+        name: tekton-triggers
+        namespace: flux-system
+      interval: 5m
