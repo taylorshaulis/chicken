@@ -32,9 +32,7 @@ spec:
       workspace: shared-data
     params:
     - name: cmd
-      value: |
-        #!/bin/sh
-        ls -alh /data
+      value: $(params.cmd)
 {{- if .Values.clonebuildpush.pipelinerun.enabled }}
 ---
 apiVersion: tekton.dev/v1beta1
@@ -59,5 +57,10 @@ spec:
   params:
   - name: repo-url
     value: {{ .Values.clonebuildpush.pipelinerun.repourl }}
+  - name: cmd
+      value: |
+        #!/bin/sh
+        ls -alh /data
+  
 {{ end }}
 {{ end }}
