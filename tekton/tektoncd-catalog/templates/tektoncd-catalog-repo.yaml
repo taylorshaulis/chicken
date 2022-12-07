@@ -11,10 +11,5 @@ spec:
   ignore: |
     # exclude all
     /*
-    # include charts directory
-    !/pipeline/  
-    !/task/
-    # exclude test directories
-    /task/*/*/tests
-    # exclude samples directories
-    /task/*/*/samples
+    # basically whitelist tasks
+    !/task/git-clone/0.9/git-clone.yaml
