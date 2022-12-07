@@ -1,29 +1,48 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
-metadata:
-  name: tekton-triggers
-  namespace: flux-system
-spec:
-  interval: 5m
-  url: https://github.com/taylorshaulis/tekton-triggers
-  ref:
-    branch: main 
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: tekton-triggers
-  namespace: default
-spec:
-  targetNamespace: default
-  interval: 5m
-  dependsOn:
-    - name: tekton
-  chart:
-    spec:
-      chart: ./charts/tekton-triggers
-      sourceRef:
-        kind: GitRepository
-        name: tekton-triggers
-        namespace: flux-system
-      interval: 5m
+# apiVersion: source.toolkit.fluxcd.io/v1beta2
+# kind: GitRepository
+# metadata:
+#   name: tekton-triggers
+#   namespace: flux-system
+# spec:
+#   interval: 5m
+#   url: https://github.com/taylorshaulis/tekton-triggers
+#   ref:
+#     branch: main 
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: tekton-triggers
+#   namespace: default
+# spec:
+#   targetNamespace: default
+#   interval: 5m
+#   dependsOn:
+#     - name: tekton
+#   chart:
+#     spec:
+#       chart: ./charts/tekton-triggers
+#       sourceRef:
+#         kind: GitRepository
+#         name: tekton-triggers
+#         namespace: flux-system
+#       interval: 5m
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: tekton-triggers-interceptor
+#   namespace: default
+# spec:
+#   targetNamespace: default
+#   interval: 5m
+#   dependsOn:
+#     - name: tekton-triggers
+#   chart:
+#     spec:
+#       chart: ./charts/tekton-triggers-interceptor
+#       sourceRef:
+#         kind: GitRepository
+#         name: tekton-triggers
+#         namespace: flux-system
+#       interval: 5m
