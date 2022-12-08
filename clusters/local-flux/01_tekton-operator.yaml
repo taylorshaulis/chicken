@@ -20,6 +20,7 @@ metadata:
   name: tekton
   namespace: default
 spec:
+  releaseName: tekton-operator
   targetNamespace: tekton-operator
   interval: 5m
   install:
