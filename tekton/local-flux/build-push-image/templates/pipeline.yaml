@@ -10,6 +10,8 @@ spec:
   params:
   - name: repo-url
     type: string
+  - name: image-reference
+    type: string
   - name: cmd
     type: string
   workspaces:
@@ -24,6 +26,16 @@ spec:
     params:
     - name: url
       value: $(params.repo-url)
+  - name: build-push
+    runAfter: ["fetch-source"]
+    taskRef:
+      name: kaniko
+    workspaces:
+    - name: source
+      workspace: shared-data
+    params:
+    - name: IMAGE
+      value: $(params.image-reference)
   - name: listdata
     runAfter: ["fetch-source"]
     taskRef:
@@ -58,6 +70,8 @@ spec:
   params:
   - name: repo-url
     value: {{ .Values.clonebuildpush.pipelinerun.repourl }}
+  - name: image-reference
+    value: docker-registry.default.svc.cluster.local:5000/hwdc:latest
   - name: cmd
     value: |
         #!/bin/sh
