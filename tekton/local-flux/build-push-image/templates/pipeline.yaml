@@ -25,6 +25,7 @@ spec:
     - name: url
       value: $(params.repo-url)
   - name: listdata
+    runAfter: ["fetch-source"]
     taskRef:
       name: hellocmd
     workspaces:
@@ -58,9 +59,8 @@ spec:
   - name: repo-url
     value: {{ .Values.clonebuildpush.pipelinerun.repourl }}
   - name: cmd
-      value: |
+    value: |
         #!/bin/sh
         ls -alh /data
-  
 {{ end }}
 {{ end }}
