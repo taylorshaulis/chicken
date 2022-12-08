@@ -7,7 +7,7 @@ clonebuildpush:
 
 checkoutlist:
   pipeline:
-    enabled: true
+    enabled: false
   pipelinerun:
-    enabled: true
+    enabled: false
     repourl: https://github.com/google/docsy-example.git
