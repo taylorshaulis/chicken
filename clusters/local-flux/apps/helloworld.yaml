@@ -4,9 +4,12 @@ metadata:
   name: hello-jobs
   namespace: default
 spec:
-  interval: 1m
+  interval: 3m
   dependsOn:
     - name: tektoncd-catalog
+  install:
+    remediation:
+      retries: 5
   chart:
     spec:
       chart: ./tekton/local-flux/hello-jobs
@@ -33,9 +36,12 @@ metadata:
   name: build-push-image
   namespace: default
 spec:
-  interval: 1m
+  interval: 3m
   dependsOn:
     - name: tektoncd-catalog
+  install:
+    remediation:
+      retries: 5
   chart:
     spec:
       chart: ./tekton/local-flux/build-push-image
