@@ -4,3 +4,10 @@ clonebuildpush:
   pipelinerun:
     enabled: true
     repourl: https://github.com/google/docsy-example.git
+
+checkoutlist:
+  pipeline:
+    enabled: true
+  pipelinerun:
+    enabled: true
+    repourl: https://github.com/google/docsy-example.git
