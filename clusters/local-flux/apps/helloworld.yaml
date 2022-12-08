@@ -1,20 +1,3 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
-metadata:
-  name: chicken
-  namespace: flux-system
-spec:
-  interval: 1m
-  url: https://github.com/taylorshaulis/chicken
-  ref:
-    branch: main
-  ignore: |
-    # exclude all
-    /*
-    # include charts directory
-    !/charts/  
-    !/tekton/  
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -43,43 +26,6 @@ spec:
         enabled: false
       taskrun:
         enabled: false
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: external-secrets-store-vault
-  namespace: default
-spec:
-  targetNamespace: external-secrets
-  interval: 1m
-  dependsOn:
-    - name: external-secrets
-  chart:
-    spec:
-      chart: ./charts/external-secrets-store-vault
-      sourceRef:
-        kind: GitRepository
-        name: chicken
-        namespace: flux-system
-      interval: 1m
----
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
-  name: tektoncd-catalog
-  namespace: default
-spec:
-  interval: 1m
-  dependsOn:
-    - name: tekton
-  chart:
-    spec:
-      chart: ./tekton/tektoncd-catalog
-      sourceRef:
-        kind: GitRepository
-        name: chicken
-        namespace: flux-system
-      interval: 1m
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
